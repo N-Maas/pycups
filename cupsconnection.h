@@ -23,6 +23,7 @@
 #define HAVE_CUPSCONNECTION_H
 
 #include <Python.h>
+#include <cups/cups.h>
 #include <cups/http.h>
 
 #include "cupsmodule.h"
@@ -37,6 +38,8 @@ typedef struct
   http_t *http;
   char *host; /* for repr */
   char *cb_password;
+  cups_dest_t *dest;
+  cups_dinfo_t *info;
   PyThreadState *tstate;
 } Connection;
 
